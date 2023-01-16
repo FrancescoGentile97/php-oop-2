@@ -18,4 +18,27 @@ class Categories extends Product{
 
     // creare le funzioni di (get and set)
 
-    
+    public function getCategory_name()
+    {
+        return $this->category_name;
+    }
+
+    public function setCategory_name($category_name)
+    {
+        $this->category_name = $category_name;
+
+        return $this;
+    }
+
+    public function getType()
+    {
+        return $this->type;
+    }
+ 
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+}
