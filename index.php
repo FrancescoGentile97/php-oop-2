@@ -11,22 +11,25 @@ $dogCategory = new Category;
 
 
 
-$croccantini = new Food ("Croccantini",7.99,$dogCategory,10,"img-placeolder",500);
-$corda = new Toy("Corda per cani", 10.99, $dogCategory, 20, "image-placeolder","Gioco per cani");
+$croccantini = new Food("Croccantini", 7.99, $dogCategory, 10, "img-placeolder", 500);
+$corda = new Toy("Corda per cani", 10.99, $dogCategory, 20, "image-placeolder", "Gioco per cani");
+$tiragraffi = new Toy("Tiragraffi", 20.99, $catCategory, 5, "image-placeolder", "Gioco per Gatti");
 $guinzaglio = new Product("Guinzaglio", 9.99, $dogCategory, 40, "image-placeolder");
-$trasportino = new Product("Trasportino", 20, $catCategory, 30, "image-placeolder");
+$trasportino = new Product("Trasportino", 20, $dogCategory, 30, "image-placeolder");
 
 var_dump($croccantini);
 var_dump($corda);
 var_dump($guinzaglio);
 var_dump($trasportino);
+var_dump($tiragraffi);
 
-$product = [
+$products = [
     $croccantini,
     $corda,
+    $tiragraffi,
     $guinzaglio,
     $trasportino,
-    
+
 ];
 
 
@@ -52,12 +55,21 @@ $product = [
         <h1 class="text-center">PET SHOP</h1>
     </div>
     <div class="row">
-        <div class="col">
+
+        <?php foreach ($products as $product) { ?>
             <div class="card">
-               
+                <div class="card-body">
+                    <div class="col-4">
+                        <h4 class="card-title"><?php echo $product->getName() ?></h4>
+                        <h5 class="card-text">Prezzo: <?php echo $product->getPrice() ?></h5>
+                        <h5 class="card-text">Categoria: <?php echo $product->getCategory()->getIcon()?></h5>
+                    </div>
+
+                </div>
             </div>
-        </div>
     </div>
+
+<?php } ?>
 </body>
 
 </html>
